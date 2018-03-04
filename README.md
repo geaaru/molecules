@@ -3,6 +3,94 @@
 
 Sabayon stuff for build Sabayon Official Images.
 
+## List of specs
+
+Main difference between iso with *dev* extension is related with type of repository used
+for create image: *dev* use limbo repository otherwise sabayon-weekly it is used.
+
+Hereinafter, list of tree of specs file and dependencies:
+
+```
+
+amd64.common
+    |
+    |   enlightenment.common
+    |    |
+    |    |
+    +----+> sabayon-amd64-enlightenment.spec
+    |
+    |   graphic-environment.common
+    |      |
+    |      |
+    |      +---> gnome.common
+    |      |      |
+    |      |      |
+    +-------------+-> sabayon-amd64-gnome.spec
+    |      |      |
+    +-------------+-> sabayon-amd64-gnome-dev.spec
+    |      |
+    |      +---> kde.common
+    |      |      |
+    |      |      |
+    +-------------+--> sabayon-amd64-kde-dev.spec
+    |      |      |
+    +-------------+--> sabayon-amd64-kde.spec
+    |      |
+    |      |     lxqt.common
+    |      |      |
+    |      |      |
+    +-------------+--> sabayon-amd64-lxqt-dev.spec
+    |      |      |
+    +-------------+--> sabayon-amd64-lxqt.spec
+    |      |
+    |      |
+    |      +---> mate.common
+    |      |      |
+    |      |      |
+    |      |      |
+    +-------------+-> sabayon-amd64-mate-dev.spec
+    |      |      |
+    +-------------+-> sabayon-amd64-mate.spec
+    |      |
+    |      |
+    |      |     minimal.common
+    |      |      |
+    |      |      |
+    +------+------+-> sabayon-amd64-minimal-dev.spec
+    |      |      |
+    +------+------+-> sabayon-amd64-minimal.spec
+    |      |
+    |      |
+    |      |     server.common
+    |      |      |
+    |      |      |
+    +-------------+-> sabayon-amd64-server-dev.spec
+    |      |      |
+    +-------------+-> sabayon-amd64-server.spec
+    |      |
+    |      |     spinbase.common
+    |      |      |
+    |      |      |
+    |      |      |
+    +-------------+-> sabayon-amd64-spinbase-dev.spec
+    |      |      |
+    +-------------+-> sabayon-amd64-spinbase.spec
+    |      |
+    |      |     xfce.common
+    |      |      |
+    |      |      |
+    |      |      |
+    +------+------+-> sabayon-amd64-xfce-dev.spec
+    |      |      |
+    +------+------+-> sabayon-amd64-xfce.spec
+    |             |
+    |   forensicxfce.common
+    |     |       |
+    |     |       |
+    +-----+-------+-----> sabayon-amd64-xfceforensic.spec
+
+```
+
 ## List of scripts
 
   * `bump_sabayon_version.sh`: script for aumatically bumps the version of Sabayon
@@ -325,7 +413,7 @@ Sabayon stuff for build Sabayon Official Images.
 
 # Requirements
 
-For build ISO images is required kernel module for squashfs xz compression.
+For build ISO images is required kernel module with squashfs xz compression.
 
 Example of error if module is not present:
 ```
